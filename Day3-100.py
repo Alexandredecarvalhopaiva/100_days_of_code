@@ -3,7 +3,7 @@ print("Você é Alexa, uma arqueólogoa que está em busca de um artefato lendá
 print("Após dias de viagem, você chegou a uma floresta densa. Dois caminhos se abrem diante de você...")
 decisao_1 = input("Para iniciar eu gostaria de entender qual caminho você prefere seguir ?\n 1 - [direita] \n 2 - [esquerda]\n")
 
-ascii_art = """
+ascii_art = '''
         ..        ____                                               ____
        . |       / +  \\         ||                       ||         /+ . \\
       .  |       |o x.|        =**=          _          =**=        | o x|
@@ -27,8 +27,8 @@ ascii_art = """
  |                         | | .                . |                          |
  |_________________________|/|.                 . | ________________________ |
  |                        || .                  . ||   -Steve Stewart-      ||
-"""
-ascii_art2 = r"""
+'''
+ascii_art2 = r'''
    _____ ____ _____
   /    /      \    \
 /____ /_________\____\
@@ -37,7 +37,7 @@ ascii_art2 = r"""
       \ \    / /
         \ \/ /
           \/
-"""
+'''
 
 
 if decisao_1 == "1":
