@@ -1,7 +1,7 @@
-print("Título: As Pedras Perdiadas – A Lenda da Igreja das Três Marias")
-print("Você é Alexa, uma arqueólogoa que está em busca de um artefato lendário: a Pedra Angular.")
-print("Após dias de viagem, você chegou a uma floresta densa. Dois caminhos se abrem diante de você...")
-decisao_1 = input("Para iniciar eu gostaria de entender qual caminho você prefere seguir ?\n 1 - [direita] \n 2 - [esquerda]\n")
+print("Title: The Lost Stones – The Legend of the Church of the Three Marys")
+print("You are Alexa, an archaeologist searching for a legendary artifact: the Keystone.")
+print("After days of travel, you've arrived at a dense forest. Two paths open up in front of you...")
+decision_1 = input("To start, I'd like to know which path you prefer to take?\n 1 - [right] \n 2 - [left]\n")
 
 ascii_art = '''
         ..        ____                                               ____
@@ -40,31 +40,29 @@ ascii_art2 = r'''
 '''
 
 
-if decisao_1 == "1":
-  print("Você seguiu pelo caminho da direita, mas caiu em uma armadilha de caçadores. 🪤")
-  print("💀 Fim de jogo.")
-if decisao_1 == "2":
-  print("Boa escolha! 🌿 Você encontrou uma parte rasgada de um mapa antigo indicando a localização da Pedra Angular.")
-  print("Após caminhar mais um pouco, você chega a um rio com correnteza muito forte...")
-  decisao_2 = input("O mapa indica que você deve atravessar o rio para chegar a uma ruína sagrada. Você prefere:\n1 - [esperar] pela correnteza baixar\n2 - [atravessar o rio nadando]\nDigite sua escolha: \n")
-  if decisao_2 == "2":
-    print("A correnteza era forte demais! Você foi arrastado até uma cachoeira e caiu... 💀 Fim de jogo.")
-  if decisao_2 == "1":
-    print("⏳ Você esperou pacientemente. Algumas horas depois, uma barragem estoura rio acima e a água desaparece!")
-    print("Você atravessa o leito seco do rio com facilidade. 🌉")
-    print("Você se depara com a velha Igreja das Três Marias, em ruínas...")
-    print(ascii_art)
-    decisao_3 = input("Dentro da igreja, você vê três caminhos:\n1 - Entrar na sala do sacerdote\n2 - Subir as escadas para o coro\n3 - Explorar um alçapão aberto sob o altar\nDigite 1, 2 ou 3: \n")
-    if decisao_3 == "1" or decisao_3 == "2":
-      print("Assim que entra, a estrutura frágil da igreja desmorona sobre você. Fim de jogo.")
-    if decisao_3 == "3" :
-      print("🔎 Você desce pelo alçapão e encontra uma câmara secreta.")
-      print("💎 No centro da sala, envolta por runas antigas, está a **Pedra Angular** – brilhando com energia ancestral.")
-      print("Parabéns! Você encontrou a primeira das Pedras Perdiadas! Mas cuidado, a estrutura está prestes a ruir...")
-
-
-      print(ascii_art2)
-
-
+if decision_1 == "1":
+    print("You took the path to the right, but fell into a hunters' trap. 🪤")
+    print("💀 Game over.")
+elif decision_1 == "2":
+    print("Good choice! 🌿 You found a torn piece of an ancient map indicating the location of the Keystone.")
+    print("After walking a bit further, you reach a river with a very strong current...")
+    decision_2 = input("The map indicates that you must cross the river to reach a sacred ruin. Do you prefer:\n1 - [wait] for the current to calm down\n2 - [swim across the river]\nEnter your choice: \n")
+    if decision_2 == "2":
+        print("The current was too strong! You were swept away to a waterfall and fell... 💀 Game over.")
+    elif decision_2 == "1":
+        print("⏳ You waited patiently. A few hours later, a dam breaks upstream and the water disappears!")
+        print("You easily cross the dry riverbed. 🌉")
+        print("You find yourself in front of the old Church of the Three Marys, in ruins...")
+        print(ascii_art)
+        decision_3 = input("Inside the church, you see three paths:\n1 - Enter the priest’s room\n2 - Go upstairs to the choir loft\n3 - Explore an open trapdoor under the altar\nEnter 1, 2, or 3: \n")
+        if decision_3 == "1" or decision_3 == "2":
+            print("As soon as you enter, the fragile structure of the church collapses on you. Game over.")
+        elif decision_3 == "3":
+            print("🔎 You descend through the trapdoor and find a secret chamber.")
+            print("💎 In the center of the room, surrounded by ancient runes, lies the **Keystone** – glowing with ancestral energy.")
+            print("Congratulations! You've found the first of the Lost Stones! But be careful, the structure is about to collapse...")
+            print(ascii_art2)
+    else:
+        print("Invalid choice. Restart the game.")
 else:
-    print("Escolha inválida. Reinicie o jogo.")
+    print("Invalid choice. Restart the game.")
