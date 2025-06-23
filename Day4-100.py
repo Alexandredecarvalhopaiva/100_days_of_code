@@ -1,18 +1,18 @@
 import random
 
-# Mensagem de boas-vindas
-print(" Bem-vindo ao jogo Pedra, Papel e Tesoura! \n")
-print("Regras do jogo:")
-print("* Você escolhe entre Pedra, Papel ou Tesoura.")
-print("* O computador também fará uma escolha aleatória.")
-print("* O resultado será decidido assim:")
-print("   - Pedra quebra Tesoura ")
-print("   - Tesoura corta Papel ")
-print("   - Papel embrulha Pedra")
-print("\nVamos jogar! Escolha com sabedoria...\n")
+# Welcome message
+print(" Welcome to the Rock, Paper, Scissors Game! \n")
+print("Game Rules:")
+print("* You choose between Rock, Paper or Scissors.")
+print("* The computer will also make a random choice.")
+print("* The outcome will be decided as follows:")
+print("   - Rock crushes Scissors ")
+print("   - Scissors cuts Paper ")
+print("   - Paper wraps Rock")
+print("\nLet's play! Choose wisely...\n")
 
-# Arte ASCII
-pedra = '''\
+# ASCII Art
+rock = '''\
     _______
 ---'   ____)
       (_____ )
@@ -20,7 +20,7 @@ pedra = '''\
       (____)
 ---.__(___)
 '''
-papel = '''\
+paper = '''\
      _______
 ---'   ____)____
           ______)
@@ -28,7 +28,7 @@ papel = '''\
          _______)
 ---.__________)
 '''
-tesoura = '''\
+scissors = '''\
     _______
 ---'   ____)____
           ______)
@@ -38,36 +38,35 @@ tesoura = '''\
 '''
 
 ascii_art = {
-    "Pedra": pedra,
-    "Papel": papel,
-    "Tesoura": tesoura
+    "Rock": rock,
+    "Paper": paper,
+    "Scissors": scissors
 }
 
-opcoes = ["Pedra", "Papel", "Tesoura"]
+options = ["Rock", "Paper", "Scissors"]
 
-# Entrada do jogador
-escolha_do_jogador = input("Escolha uma das opções: \n 1 - Pedra \n 2 - Papel \n 3 - Tesoura\n")
+# Player input
+player_choice = input("Choose one of the options: \n 1 - Rock \n 2 - Paper \n 3 - Scissors\n")
 
-if escolha_do_jogador not in ["1", "2", "3"]:
-    print("Escolha inválida. Por favor, escolha 1, 2 ou 3.")
-    sys.exit()
+if player_choice not in ["1", "2", "3"]:
+    print("Invalid choice. Please choose 1, 2, or 3.")
 
-escolha_do_jogador = int(escolha_do_jogador)
-jogada_jogador = opcoes[escolha_do_jogador - 1]
-jogada_pc = random.choice(opcoes)
+player_choice = int(player_choice)
+player_move = options[player_choice - 1]
+computer_move = random.choice(options)
 
-# Mostra as escolhas com arte
-print(f"\nVocê escolheu: {jogada_jogador}")
-print(ascii_art[jogada_jogador])
-print(f"O computador escolheu: {jogada_pc}")
-print(ascii_art[jogada_pc])
+# Show choices with ASCII art
+print(f"\nYou chose: {player_move}")
+print(ascii_art[player_move])
+print(f"The computer chose: {computer_move}")
+print(ascii_art[computer_move])
 
-# Lógica do jogo
-if jogada_jogador == jogada_pc:
-    print("\nEmpate técnico!")
-elif (jogada_jogador == "Pedra" and jogada_pc == "Tesoura") or \
-     (jogada_jogador == "Papel" and jogada_pc == "Pedra") or \
-     (jogada_jogador == "Tesoura" and jogada_pc == "Papel"):
-    print("\nParabéns, você venceu!! 🎉")
+# Game logic
+if player_move == computer_move:
+    print("\nIt's a tie!")
+elif (player_move == "Rock" and computer_move == "Scissors") or \
+     (player_move == "Paper" and computer_move == "Rock") or \
+     (player_move == "Scissors" and computer_move == "Paper"):
+    print("\nCongratulations, you won!! 🎉")
 else:
-    print("\nVocê perdeu feio... 😞")
+    print("\nYou lost badly... 😞")
