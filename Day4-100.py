@@ -1,36 +1,73 @@
 import random
 
-aleatorio_inteiro = random.randint(1,10)
-print(aleatorio_inteiro)
+# Mensagem de boas-vindas
+print(" Bem-vindo ao jogo Pedra, Papel e Tesoura! \n")
+print("Regras do jogo:")
+print("* Você escolhe entre Pedra, Papel ou Tesoura.")
+print("* O computador também fará uma escolha aleatória.")
+print("* O resultado será decidido assim:")
+print("   - Pedra quebra Tesoura ")
+print("   - Tesoura corta Papel ")
+print("   - Papel embrulha Pedra")
+print("\nVamos jogar! Escolha com sabedoria...\n")
 
-states_of_american = ["Delaware","Pennsylvania","New Jersey","Georgia"]
-states_of_american.append("João Pessoa")
-print(states_of_american)
+# Arte ASCII
+pedra = '''\
+    _______
+---'   ____)
+      (_____ )
+      (_____ )
+      (____)
+---.__(___)
+'''
+papel = '''\
+     _______
+---'   ____)____
+          ______)
+         _______)
+         _______)
+---.__________)
+'''
+tesoura = '''\
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
 
-friends = ["Alexandre","João","Rejane","Wellyngton O.","Diego","Rosendo","Vinicius","Wellyngton M.","Todos"]
-sorteio = random.randint(1,9)
+ascii_art = {
+    "Pedra": pedra,
+    "Papel": papel,
+    "Tesoura": tesoura
+}
 
-if sorteio == 1:
-  print(f"Parabéns {friends[0]} você foi o premiado para pagar a conta!")
-elif sorteio == 2:
-  print(f"Parabéns {friends[1]} você foi o premiado para pagar a conta!")
-elif sorteio == 3:
-  print(f"Parabéns {friends[2]} você foi o premiada para pagar a conta!")
-elif sorteio == 4:
-  print(f"Parabéns {friends[3]} você foi o premiado para pagar a conta!")
-elif sorteio == 5:
-  print(f"Parabéns {friends[4]} você foi o premiado para pagar a conta!")
-elif sorteio == 6:
-  print(f"Parabéns {friends[5]} você foi o premiado para pagar a conta!")
-elif sorteio == 7:
-  print(f"Parabéns {friends[6]} você foi o premiado para pagar a conta!")
+opcoes = ["Pedra", "Papel", "Tesoura"]
+
+# Entrada do jogador
+escolha_do_jogador = input("Escolha uma das opções: \n 1 - Pedra \n 2 - Papel \n 3 - Tesoura\n")
+
+if escolha_do_jogador not in ["1", "2", "3"]:
+    print("Escolha inválida. Por favor, escolha 1, 2 ou 3.")
+    sys.exit()
+
+escolha_do_jogador = int(escolha_do_jogador)
+jogada_jogador = opcoes[escolha_do_jogador - 1]
+jogada_pc = random.choice(opcoes)
+
+# Mostra as escolhas com arte
+print(f"\nVocê escolheu: {jogada_jogador}")
+print(ascii_art[jogada_jogador])
+print(f"O computador escolheu: {jogada_pc}")
+print(ascii_art[jogada_pc])
+
+# Lógica do jogo
+if jogada_jogador == jogada_pc:
+    print("\nEmpate técnico!")
+elif (jogada_jogador == "Pedra" and jogada_pc == "Tesoura") or \
+     (jogada_jogador == "Papel" and jogada_pc == "Pedra") or \
+     (jogada_jogador == "Tesoura" and jogada_pc == "Papel"):
+    print("\nParabéns, você venceu!! 🎉")
 else:
-  print("A conta será dividida por igual !")
-#segunda maneira de fazer o exercício
-
-  friends = ["Alexandre", "João", "Rejane", "Wellyngton O.", "Diego", "Rosendo", "Vinicius", "Wellyngton M."]
-  sorteio = random.randint(0, 7)
-
-  print(f"Parabéns {friends[sorteio]} você foi o premiado para pagar a conta!")
-
-  print(random.choice(friends))
+    print("\nVocê perdeu feio... 😞")
