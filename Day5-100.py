@@ -41,6 +41,10 @@ Você vai escrever um programa que imprime automaticamente a solução do jogo F
 - E se o número for divisível por 3 e 5, por exemplo, 15, em vez do número, ele deve imprimir "FizzBuzz""'''
 
 for n in range(1,101):
-    if n%3 == 0:
+    if n%3 == 0 and n%5 ==0:
+        n = ("FizzBuzz")
+    elif n%3 == 0:
         n = ("Fizz")
+    elif n%5 == 0:
+        n = ("Buzz")
     print(n)
