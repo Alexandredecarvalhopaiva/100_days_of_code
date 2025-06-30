@@ -64,12 +64,14 @@ especial_caracter = ["'", "@", "#", "!", '"', "$", "%", "&", "(", ")", "*", "+",
 
 print("Olá! Vou te ajudar a criar uma senha mais segura. Vamos começar?")
 
-n1 = input("Quantas letras você quer na sua senha? ")
-n2 = input("Quantos números devem compor a sua senha? ")
-n3 = input("Quantos caracteres especiais você gostaria de incluir? ")
+n1 = int(input("Quantas letras você quer na sua senha? "))
+n2 = int(input("Quantos números devem compor a sua senha? "))
+n3 = int(input("Quantos caracteres especiais você gostaria de incluir? "))
+contagem_1=0
 
-for letras_senha in letter:
-    print(letras_senha)
+
+for i in range(n1):
+    letras_da_senha = random.choice(letter)
     contagem_1 =+1
 
 print(random.choice(letter))
