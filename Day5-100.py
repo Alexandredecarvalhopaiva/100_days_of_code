@@ -52,14 +52,15 @@ for n in range(1,101):
     print(n)
 '''
 
+import random
 
 # Desafio do gerador de senhas
-letter = ["a", "B", "c", "D", "e", "F", "g", "H", "i", "J", "k", "L", "m",
+letras = ["a", "B", "c", "D", "e", "F", "g", "H", "i", "J", "k", "L", "m",
           "N", "o", "P", "q", "R", "s", "T", "u", "V", "w", "X", "y", "Z"]
 
-number = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+numeros = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 
-especial_caracter = ["'", "@", "#", "!", '"', "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">",
+caracteres_especiais = ["'", "@", "#", "!", '"', "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">",
                       "?", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"]
 
 print("Olá! Vou te ajudar a criar uma senha mais segura. Vamos começar?")
@@ -67,11 +68,21 @@ print("Olá! Vou te ajudar a criar uma senha mais segura. Vamos começar?")
 n1 = int(input("Quantas letras você quer na sua senha? "))
 n2 = int(input("Quantos números devem compor a sua senha? "))
 n3 = int(input("Quantos caracteres especiais você gostaria de incluir? "))
-contagem_1=0
 
+# Gerando a senha
+senha = []
 
 for i in range(n1):
-    letras_da_senha = random.choice(letter)
-    contagem_1 =+1
+    senha.append(random.choice(letras))
+for i in range(n2):
+    senha.append(random.choice(numeros))
+for i in range(n3):
+    senha.append(random.choice(caracteres_especiais))
 
-print(random.choice(letter))
+# Embaralhar os caracteres da senha
+random.shuffle(senha)
+
+# Juntar a senha como string
+senha_final = ''.join(senha)
+
+print(f"Sua senha segura é:{senha_final}")
