@@ -77,7 +77,6 @@ def turn_around():
     turn_left()
     turn_left()
 def running():
-   # move()
     turn_left()
     while right_is_clear() == False:
         move()
@@ -94,4 +93,4 @@ while at_goal() == False:
     elif wall_in_front() == True:
         running()
 
-     
+# Desafio 5 - Maze:
