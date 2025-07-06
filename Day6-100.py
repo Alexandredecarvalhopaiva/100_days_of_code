@@ -79,11 +79,13 @@ def turn_around():
 def running():
    # move()
     turn_left()
-    move()
+    while right_is_clear() == False:
+        move()
     turn_right()
     move()
     turn_right()
-    move()
+    while front_is_clear() == True:
+        move()
     turn_left()
 
 while at_goal() == False:
