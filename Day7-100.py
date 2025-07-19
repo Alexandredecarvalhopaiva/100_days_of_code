@@ -33,10 +33,13 @@ escolha_do_usuario = input("Digite uma letra: ").lower()
 
 # Aplica a substituição
 estado_atual, posicoes = substituir_e_mostrar_posicoes(
-    carro_sorteado, escolha_do_usuario, escolha_do_usuario, estado_atual
-)
+    carro_sorteado, escolha_do_usuario, escolha_do_usuario, estado_atual)
 
 print("🔁 Resultado após tentativa:")
 print("Palavra:", " ".join(estado_atual))
 print("Posições substituídas:", posicoes)
 print("Palavra secreta era:", carro_sorteado)
+
+# Randomly choose a word from the word_list and assign it to a variable called chosen_word. Then print it. 
+# Ask the user to guess a letter and asing their answer to a variable called guess. Make guess lowercase. 
+# Check if the latter the user guessed (guess) is one of the letters in the chosen_word. Print "Right" if it is, "Wrong" if it's not
