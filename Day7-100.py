@@ -1,45 +1,153 @@
-#Iniciando o dia 7 - Hangmen
-
-#Foi feito o fluxograma do desafio da forca : https://app.diagrams.net/?src=about#G1sFgeVLL0P03mNWC3NlRa8bI6wSNFRx5h#%7B%22pageId%22%3A%22C5RBs43oDa-KdzZeNtuy%22%7D
-
 import random
+stages = [ 
+    '''
+██    ██  ██████  ██    ██     ██     ██ ██ ███    ██ 
+ ██  ██  ██    ██ ██    ██     ██     ██ ██ ████   ██ 
+  ████   ██    ██ ██    ██     ██  █  ██ ██ ██ ██  ██ 
+   ██    ██    ██ ██    ██     ██ ███ ██ ██ ██  ██ ██ 
+   ██     ██████   ██████       ███ ███  ██ ██   ████             
+''',
+    '''
+  ██████╗  █████╗ ███╗   ███╗███████╗     ██████╗ ██╗   ██╗███████╗██████╗ 
+ ██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ██╔═══██╗██║   ██║██╔════╝██╔══██╗
+ ██║  ███╗███████║██╔████╔██║█████╗      ██║   ██║██║   ██║█████╗  ██████╔╝
+ ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██║   ██║██║  ██ ║██╔══╝  ██╔══██╗
+ ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ╚██████╔╝╚██████╔╝███████╗██║  ██║
+  ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝     ╚════╝  ╚═════╝ ╚══════╝╚═╝   ╚═╝
 
-def substituir_e_mostrar_posicoes(palavra_original, letra_digitada, substituto, estado_atual):
-    posicoes = []
-
-    for i, letra in enumerate(palavra_original):
-        if letra.lower() == letra_digitada.lower():
-            estado_atual[i] = substituto
-            posicoes.append(i)
-
-    return estado_atual, posicoes
-
-# Lista de carros
-carros = [
-    "Gol", "Palio", "Uno", "Corsa", "Fiesta", "Fox", "Celta", "HB20", "Ka", "Onix",
-    "Siena", "Sandero", "Corolla", "Civic", "Cruze", "Voyage", "Logan", "Clio", "Argo", "Mobi",
-    "Spin", "Fit", "T-Cross", "Kwid", "Tracker", "Polo", "Virtus", "Toro", "Compass", "Renegade"
+ +---+  
+ |   |
+ O   |
+/|\  |
+/ \  |
+     |
+======
+''',
+    '''
+ +---+
+ |   |
+ O   |
+/|\  |
+/    |
+     |
+======
+''',
+    '''
+ +---+
+ |   |
+ O   |
+/|\  |
+     |
+     |
+======
+''',
+    '''
+ +---+
+ |   |
+ O   |
+/|   |
+     |
+     |
+======
+''',
+    '''
+ +---+
+ |   |
+ O   |
+ |   |
+     |
+     |
+======
+''',
+    '''
+ +---+
+ |   |
+ O   |
+     |
+     |
+     |
+======
+''',
+    ''' 
+ +---+
+ |   |
+     |
+     |
+     |
+     |
+======'''
 ]
 
-# Sorteando um carro
-carro_sorteado = random.choice(carros).lower()
-estado_atual = ["_" for _ in carro_sorteado]
+logo = ['''  
+  _                                             
+ | |                                            
+ | |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  
+ | '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \ 
+ | | | | (_| | | | | (_| | | | | | | (_| | | | |
+ |_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
+                     __/ |                      
+                    |___/                       
 
-print("🎮 Jogo da Forca: Tema = Carros Populares")
-print("Palavra:", " ".join(estado_atual))
+         ┌─────────────────────────┐
+         │   PREPARE-SE PARA O     │
+         │      JOGO DA FORCA      │
+         └─────────────────────────┘
+''']
 
-# Solicita a letra do usuário
-escolha_do_usuario = input("Digite uma letra: ").lower()
+word_list = ["Gol", "Palio", "Uno", "Corsa", "Fiesta", "Fox", "Celta", "HB20", "Ka", "Onix",
+    "Siena", "Sandero", "Corolla", "Civic", "Cruze", "Voyage", "Logan", "Clio", "Argo", "Mobi",
+    "Spin", "Fit", "T-Cross", "Kwid", "Tracker", "Polo", "Virtus", "Toro", "Compass", "Renegade"]
 
-# Aplica a substituição
-estado_atual, posicoes = substituir_e_mostrar_posicoes(
-    carro_sorteado, escolha_do_usuario, escolha_do_usuario, estado_atual)
+lives = 6
+print(logo)
+carro_sorteado = random.choice(word_list).lower()
+print(carro_sorteado)
 
-print("🔁 Resultado após tentativa:")
-print("Palavra:", " ".join(estado_atual))
-print("Posições substituídas:", posicoes)
-print("Palavra secreta era:", carro_sorteado)
+placeholder = ""
+word_length = len(carro_sorteado)
+for position in range(word_length):
+    placeholder += "_"
+print(placeholder)
 
-# Randomly choose a word from the word_list and assign it to a variable called chosen_word. Then print it. 
-# Ask the user to guess a letter and asing their answer to a variable called guess. Make guess lowercase. 
-# Check if the latter the user guessed (guess) is one of the letters in the chosen_word. Print "Right" if it is, "Wrong" if it's not
+# Primeiro passo: Escolha de uma palavra aleatoriamente de uma lista
+game_over = False
+correct_letters = []
+
+while not game_over:  
+    print(f"Você pode errar {lives} vezes ")
+    guess = input("Guess a letter: ").lower()
+    print(guess)
+
+    if guess in correct_letters:
+        print(f'Você escolheu essa letra: {guess}')
+
+    display = ""
+
+# Segundo passo: O jogador, usuário, escolhe uma letra:
+    palavras_carro_sorteado = list(carro_sorteado)
+    print(palavras_carro_sorteado)
+
+# Terceiro passo: Verifica se essa letra tem na palavra escolhida pelo computador:
+    for letter in  palavras_carro_sorteado:
+        if letter == guess:
+            display += letter
+            correct_letters.append(guess)
+        elif letter in correct_letters:
+            display += letter
+        else:
+            display += "_"
+    
+    print(display)
+
+#Redução das vidas após 
+    if guess not in palavras_carro_sorteado:
+        lives -= 1
+        print(f"Você escolheu a letra: {guess}, essa letrão não está na plavra sorteada. Você perdeu uma vida")
+        if lives == 0:
+            game_over = True
+            print(f"A palavra escolhida era: '{carro_sorteado}'")
+            print(stages[1])
+
+    if "_" not in display:
+        game_over = True
+        print(stages[0])
