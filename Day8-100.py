@@ -23,3 +23,12 @@ greet_with_name("Angela")
 nome = input("Qual é o seu nome ? ")
 idade = int(input("Qual a sua idade ? "))
 life_in_weeks(nome,idade)
+
+#_________________________________________________________
+
+
+def calcular_pontuação_de_amor ( nome1 , nome2 ):
+  # seu código aqui
+ 
+# Chame sua função com valores codificados
+calcular_pontuação_de_amor ( "Kanye West" , "Kim Kardashian" ) 
