@@ -16,19 +16,88 @@ def life_in_weeks(nome,idade):
     semanas_de_vida = int(semanas_de_vida)
     print(f"{nome}, você nasceu em: {ano_de_nascimento}")
     print(f"Você tem {semanas_de_vida} semanas de vida")
-
+'''
 greet()
-greet_with_name("Angela")
+greet_with_name("Angela")'''
 
-nome = input("Qual é o seu nome ? ")
+'''nome = input("Qual é o seu nome ? ")
 idade = int(input("Qual a sua idade ? "))
-life_in_weeks(nome,idade)
+life_in_weeks(nome,idade)'''
 
 #_________________________________________________________
+'''Calculadora do Amor
+💪 Este é um desafio difícil! 💪 
+
+Você vai escrever uma função chamada calculate_love_score() que testa a compatibilidade entre dois nomes. Para calcular a pontuação de amor entre duas pessoas: 
+
+1. Pegue os nomes das duas pessoas e verifique o número de vezes que as letras da palavra TRUE ocorrem.   
+
+2. Em seguida, verifique o número de vezes que as letras da palavra LOVE ocorrem.   
+
+3. Em seguida, combine esses números para formar um número de 2 dígitos e imprima-o. 
+
+por exemplo
+
+name1 = "Angela Yu" name2 = "Jack Bauer"
+
+T ocorre 0 vezes 
+
+R ocorre 1 vez 
+
+U ocorre 2 vezes 
+
+E ocorre 2 vezes 
+
+Total = 5 
+
+L ocorre 1 vez 
+
+O ocorre 0 vezes 
+
+V ocorre 0 vezes 
+
+E ocorre 2 vezes 
+
+Total = 3 
 
 
-def calcular_pontuação_de_amor ( nome1 , nome2 ):
-  # seu código aqui
- 
-# Chame sua função com valores codificados
-calcular_pontuação_de_amor ( "Kanye West" , "Kim Kardashian" ) 
+
+Pontuação de amor = 53
+
+
+
+
+
+Exemplo de entrada 
+
+calculate_love_score("Kanye West", "Kim Kardashian")
+
+Exemplo de saída
+
+42
+
+
+def calculate_love_score(name1, name2):
+    combined_names = name1 + name2
+    lower_names = combined_names.lower()
+    
+    t = lower_names.count("t")
+    r = lower_names.count("r")
+    u = lower_names.count("u")
+    e = lower_names.count("e")
+    first_digit = t + r + u + e
+    
+    l = lower_names.count("l")
+    o = lower_names.count("o")
+    v = lower_names.count("v")
+    e = lower_names.count("e")
+    second_digit = l + o + v + e
+    
+    
+    score = int(str(first_digit) + str(second_digit))
+    print(score)
+    
+calculate_love_score("Kanye West", "Kim Kardashian")'''
+
+#Projeto final: Caesar Cipher
+
