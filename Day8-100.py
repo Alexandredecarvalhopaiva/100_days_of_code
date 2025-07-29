@@ -101,3 +101,20 @@ calculate_love_score("Kanye West", "Kim Kardashian")'''
 
 #Projeto final: Caesar Cipher
 
+print('Aqui você pode codificar e descodificar mensagens, utilizando o método de Caesar Cipher')
+tentativa = 0
+escolha = input("O que deseja fazer? Para encriptografar digite 'encode' e para descriptografar digite 'decode': ").lower()
+
+while escolha != 'decode' and escolha != 'encode':
+    tentativa += 1
+    if tentativa > 2:
+        print("O texto está inconsistente. Você só pode digitar 'decode' ou 'encode'.")
+        break
+    escolha = input("Entrada inválida. Por favor, digite 'encode' ou 'decode': ").lower()
+
+if escolha == "encode":
+    msg = input("Escreva sua mensagem: ")
+    # aqui você pode colocar a lógica para criptografar a mensagem
+elif escolha == "decode":
+    msg = input("Escreva a mensagem a ser descriptografada: ")
+    # aqui você pode colocar a lógica para descriptografar a mensagem
