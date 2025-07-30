@@ -107,14 +107,16 @@ escolha = input("O que deseja fazer? Para encriptografar digite 'encode' e para 
 
 while escolha != 'decode' and escolha != 'encode':
     tentativa += 1
-    if tentativa > 2:
-        print("O texto está inconsistente. Você só pode digitar 'decode' ou 'encode'.")
+    if tentativa > 10:
+        print("O texto está inconsistente. Tente novamente mais tarde")
         break
     escolha = input("Entrada inválida. Por favor, digite 'encode' ou 'decode': ").lower()
 
 if escolha == "encode":
     msg = input("Escreva sua mensagem: ")
+    shift = input("Digite um número que será utilizado como shift")
     # aqui você pode colocar a lógica para criptografar a mensagem
 elif escolha == "decode":
-    msg = input("Escreva a mensagem a ser descriptografada: ")
+    msg2 = input("Escreva a mensagem a ser descriptografada: ")
+    shift = input("Digite um número que será utilizado como shift")
     # aqui você pode colocar a lógica para descriptografar a mensagem
