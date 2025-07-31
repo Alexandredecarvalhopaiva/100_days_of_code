@@ -119,4 +119,7 @@ if escolha == "encode":
 elif escolha == "decode":
     msg2 = input("Escreva a mensagem a ser descriptografada: ")
     shift = input("Digite um número que será utilizado como shift")
+    #Transformar a mensagem em uma lista cada letra umas string diferentes
+    #Atualizar a lista seguindo a referencia do número shift indice localizado + valor de shift
+    #transformar a lista em uma mensagem novamente
     # aqui você pode colocar a lógica para descriptografar a mensagem
