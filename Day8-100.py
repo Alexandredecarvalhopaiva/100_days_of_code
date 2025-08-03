@@ -101,9 +101,15 @@ calculate_love_score("Kanye West", "Kim Kardashian")'''
 
 #Projeto final: Caesar Cipher
 
+
+alfabeto = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
+ 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
+ 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
 print('Aqui você pode codificar e descodificar mensagens, utilizando o método de Caesar Cipher')
 tentativa = 0
-escolha = input("O que deseja fazer? Para encriptografar digite 'encode' e para descriptografar digite 'decode': ").lower()
+escolha = input("O que deseja fazer? Para encriptografar digite 'encode' e para descriptografar digite 'decode':\n ").lower()
+shift = int(input("Defina um número para adotarmos como valor do Shift:\n "))
 
 while escolha != 'decode' and escolha != 'encode':
     tentativa += 1
@@ -112,14 +118,27 @@ while escolha != 'decode' and escolha != 'encode':
         break
     escolha = input("Entrada inválida. Por favor, digite 'encode' ou 'decode': ").lower()
 
+
+def encrypt(original_text, shift_amount):
+    cipher_text = ""
+
+    for letter in original_text:
+        shifted_position = alfabeto.index(letter)+shift_amount
+        cipher_text += alfabeto[shifted_position]
+    print(f"Seu código criptografado é: {cipher_text}")
+
+encrypt(original_text=text,shift_amount=shift)
+
 if escolha == "encode":
-    msg = input("Escreva sua mensagem: ")
-    shift = input("Digite um número que será utilizado como shift")
+    encrypt()
     # aqui você pode colocar a lógica para criptografar a mensagem
 elif escolha == "decode":
     msg2 = input("Escreva a mensagem a ser descriptografada: ")
+    lista_letras = list(msg2)
     shift = input("Digite um número que será utilizado como shift")
+    print(msg2)
     #Transformar a mensagem em uma lista cada letra umas string diferentes
     #Atualizar a lista seguindo a referencia do número shift indice localizado + valor de shift
     #transformar a lista em uma mensagem novamente
     # aqui você pode colocar a lógica para descriptografar a mensagem
+
