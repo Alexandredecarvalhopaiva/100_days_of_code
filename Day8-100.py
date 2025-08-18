@@ -21,7 +21,7 @@ texto = input("Digite sua mensagem:\n ").lower()
 shift = int(input("Defina um número para o Shift (deslocamento):\n "))
 
 # Corrige valores muito altos de shift
-shift = shift % 26
+shift = shift % len(alfabeto)
 
 def encrypt(original_text, shift_amount):
     cipher_text = ""
